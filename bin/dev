@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+
+exec overmind s -f Procfile.dev "$@"
