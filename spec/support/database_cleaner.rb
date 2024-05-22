@@ -11,13 +11,24 @@ DatabaseCleaner.allow_remote_database_url = true
 
 RSpec.configure do |config|
   config.before(:suite) do
-    DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
   end
 
-  config.around(:each, type: :database) do |example|
-    DatabaseCleaner.cleaning do
-      example.run
+  config.before(:each) do
+    DatabaseCleaner.strategy = :transaction
+  end
+
+  config.before(:each, type: :feature) do
+    unless Capybara.current_driver == :rack_test
+      DatabaseCleaner.strategy = :truncation
     end
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+  config.append_after(:each) do
+    DatabaseCleaner.clean
   end
 end
