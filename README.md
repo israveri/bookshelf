@@ -15,10 +15,11 @@ This is the basic Hanami app used in it's [official guide][hanami] with slight m
 * ✅ Initial setup
 * ✅ Database setup
 * ✅ Listing book data
+* ✅ Using request parameters
 
 ### Next
 
-* Using request parameters
+* Creating a book
 
 [hanami]:   https://guides.hanamirb.org/v2.1/introduction/getting-started/
 [overmind]: https://github.com/DarthSim/overmind
