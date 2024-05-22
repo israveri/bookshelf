@@ -2,6 +2,12 @@
 
 <ul>
   <% books.each do |book| %>
-    <li><%= book[:title] %>, by <%= book[:author] %></li>
+    <li>
+      <%= link_to routes.path(:show_book, id: book[:id]) do %>
+        <%= book[:title] %>, by <%= book[:author] %>
+      <% end %>
+    </li>
   <% end %>
 </ul>
+
+<%= link_to "Home", routes.path(:root) %>

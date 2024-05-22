@@ -8,7 +8,7 @@ module Bookshelf
 
         expose :books do |page:, per_page:|
           rom.relations[:books]
-            .select(:title, :author)
+            .select(:id, :title, :author)
             .order(:title)
             .page(page)
             .per_page(per_page)

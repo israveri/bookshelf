@@ -1,3 +1,6 @@
 <h1><%= book[:title] %></h1>
 
 <p>By <%= book[:author] %></p>
+
+<%= link_to "Back", routes.path(:list_books) %><br />
+<%= link_to "Home", routes.path(:root) %>
