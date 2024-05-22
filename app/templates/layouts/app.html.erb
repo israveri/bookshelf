@@ -8,6 +8,12 @@
     <%= stylesheet_tag "app" %>
   </head>
   <body>
+    <% [:alert, :notice].each do |level| %>
+      <% if flash[level] %>
+        <p><%= flash[level] %></p>
+      <% end %>
+    <% end %>
+
     <%= yield %>
     <%= javascript_tag "app" %>
   </body>
